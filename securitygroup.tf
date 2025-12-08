@@ -15,8 +15,8 @@ resource "samsungcloudplatformv2_security_group_security_group" "k8s_sg" {
 }
 
 # 데이터베이스용 보안 그룹
-resource "samsungcloudplatformv2_security_group_security_group" "db_sg" {
-  name        = "${local.name_prefix}-db-SG-${local.environment}"
+resource "samsungcloudplatformv2_security_group_security_group" "bastion_sg" {
+  name        = "${local.name_prefix}-bastion-SG-${local.environment}"
   description = "SecurityGroup generated from terraform"
   loggable = false
   tags        = local.common_tags

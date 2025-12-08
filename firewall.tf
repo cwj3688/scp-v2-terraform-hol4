@@ -14,7 +14,7 @@ resource "samsungcloudplatformv2_firewall_firewall_rule" "my_igw_fwrule_systemup
       service_type = "TCP"
       service_value = "443"
     }]
-    source_address = ["192.168.50.0/24"]   # k8s 서브넷
+    source_address = ["192.168.0.0/24", "192.168.50.0/24"]   # k8s 서브넷
     status = "ENABLE"
   }
 }
@@ -72,7 +72,7 @@ resource "samsungcloudplatformv2_firewall_firewall_rule" "my_igw_fwrule_ssh" {
   firewall_rule_create = {
     action = "ALLOW"
     description = "Rule from terraform"
-    destination_address = ["192.168.50.0/24"]                 # k8s 서브넷
+    destination_address = ["192.168.0.0/24"]                 # k8s 서브넷
     direction = "INBOUND"
     service = [{
       service_type = "TCP"

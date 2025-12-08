@@ -23,3 +23,8 @@ output "db_subnet_id" {
   description = "Database Subnet ID"
   value       = samsungcloudplatformv2_vpc_subnet.db_subnet.id
 }
+
+
+output "keypair_output" {
+  value = samsungcloudplatformv2_virtualserver_keypair.keypair
+}
