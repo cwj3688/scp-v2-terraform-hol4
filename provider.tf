@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     samsungcloudplatformv2 = {
-      version = "1.0.3"
+      version = "3.0.3"
       source = "samsungsdscloud/samsungcloudplatformv2"
     }
     time = {
