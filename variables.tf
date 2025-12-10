@@ -47,8 +47,18 @@ variable "kubernetes_version" {
   default     = "v1.31.8"
 }
 
+# Bastion Host (Virtual Server) 설정
+variable "bastion_server_type" {
+  description = "Bastion Host 인스턴스 타입"
+  type        = string
+  default     = "s1v1m2"
+}
 
-
+variable "bastion_disk_size" {
+  description = "Bastion Host 디스크 크기 (GB)"
+  type        = number
+  default     = 48
+}
 
 # MariaDB 설정
 variable "mariadb_engine_version_id" {

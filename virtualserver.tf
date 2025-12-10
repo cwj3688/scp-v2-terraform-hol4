@@ -10,11 +10,11 @@ resource "samsungcloudplatformv2_virtualserver_server" "bastion" {
   security_groups = [samsungcloudplatformv2_security_group_security_group.bastion_sg.id]
   
   image_id = "b8cd519a-c8ce-4a51-ac8d-aab9888339bc"
-  server_type_id = "s1v1m2"
+  server_type_id = var.bastion_server_type
   
   # 스토리지 설정
   boot_volume = {
-    size                  = 48
+    size = var.bastion_disk_size
   }
 
   networks = {
@@ -38,11 +38,4 @@ resource "samsungcloudplatformv2_virtualserver_server" "bastion" {
       Purpose = "Secure Gateway"
     }
   )
-  
-  # # 리소스 의존성
-  # depends_on = [
-  #   samsungcloudplatformv2_vpc_subnet.lb_subnet,
-  #   samsungcloudplatformv2_security_group_security_group.lb_sg,
-  #   samsungcloudplatformv2_virtualserver_keypair.keypair
-  # ]
 }

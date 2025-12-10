@@ -64,7 +64,7 @@ resource "samsungcloudplatformv2_security_group_security_group_rule" "allow_bast
   protocol          = "TCP"
   direction         = "egress"
   description       = "SecurityGroup Rule generated from Terraform"
-  remote_ip_prefix  = "192.168.0.0/24"
+  remote_ip_prefix  = "192.168.100.0/24"
   port_range_min    = 2866
   port_range_max    = 2866
   depends_on  = [samsungcloudplatformv2_security_group_security_group_rule.my_sg_rule_update_http]
@@ -76,7 +76,7 @@ resource "samsungcloudplatformv2_security_group_security_group_rule" "allow_k8s_
   protocol          = "TCP"
   direction         = "egress"
   description       = "SecurityGroup Rule generated from Terraform"
-  remote_ip_prefix  = "192.168.50.0/24"
+  remote_ip_prefix  = "192.168.100.0/24"
   port_range_min    = 2866
   port_range_max    = 2866
   depends_on  = [samsungcloudplatformv2_security_group_security_group_rule.allow_bastion_mariadb]
