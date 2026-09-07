@@ -21,4 +21,3 @@ resource "samsungcloudplatformv2_security_group_security_group" "k8s_sg" {
   loggable = false
   tags        = local.common_tags
 }
-

@@ -1,3 +1,4 @@
+# SSH Keypair 생성
 resource "samsungcloudplatformv2_virtualserver_keypair" "keypair" {
   name = "${local.name_prefix}-keypair-${local.environment}"
   tags = local.common_tags

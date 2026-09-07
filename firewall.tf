@@ -38,7 +38,7 @@ resource "samsungcloudplatformv2_firewall_firewall_rule" "my_igw_fwrule_webservi
     source_address = ["0.0.0.0/0"]         # 모든 소스
     status = "ENABLE"
   }
-  depends_on  = [samsungcloudplatformv2_firewall_firewall_rule.my_igw_fwrule_systemupdate]
+  depends_on = [samsungcloudplatformv2_firewall_firewall_rule.my_igw_fwrule_systemupdate]
 }
 
 # 쿠버네티스 API 접근 규칙
@@ -64,7 +64,7 @@ resource "samsungcloudplatformv2_firewall_firewall_rule" "my_igw_fwrule_k8s" {
     source_address = ["0.0.0.0/0"]         # 모든 소스
     status = "ENABLE"
   }
-  depends_on  = [samsungcloudplatformv2_firewall_firewall_rule.my_igw_fwrule_webservice]
+  depends_on = [samsungcloudplatformv2_firewall_firewall_rule.my_igw_fwrule_webservice]
 }
 
 resource "samsungcloudplatformv2_firewall_firewall_rule" "my_igw_fwrule_ssh" {
@@ -72,7 +72,7 @@ resource "samsungcloudplatformv2_firewall_firewall_rule" "my_igw_fwrule_ssh" {
   firewall_rule_create = {
     action = "ALLOW"
     description = "Rule from terraform"
-    destination_address = ["192.168.0.0/24"]                 # k8s 서브넷
+    destination_address = ["192.168.0.0/24"]                 # LB/Public(Bastion) 서브넷
     direction = "INBOUND"
     service = [{
       service_type = "TCP"
@@ -81,5 +81,5 @@ resource "samsungcloudplatformv2_firewall_firewall_rule" "my_igw_fwrule_ssh" {
     source_address = ["${local.my_current_ip_address}"]  # 현재 IP만 허용
     status = "ENABLE"
   }
-  depends_on  = [samsungcloudplatformv2_firewall_firewall_rule.my_igw_fwrule_k8s]
+  depends_on = [samsungcloudplatformv2_firewall_firewall_rule.my_igw_fwrule_k8s]
 }

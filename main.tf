@@ -1,10 +1,9 @@
 # 프로젝트 메타데이터 설정
 locals {
   # 프로젝트 이름 정의
-  project     = "scp-terraform-hol3"
+  project     = "scp-terraform-hol4"
   # 환경 구분 정의
   environment = "hol4"
-  # 리전 정보
   
   # 공통 태그 정의
   common_tags = {

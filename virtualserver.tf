@@ -15,6 +15,8 @@ resource "samsungcloudplatformv2_virtualserver_server" "bastion" {
   # 스토리지 설정
   boot_volume = {
     size = var.bastion_disk_size
+    max_iops = 5000
+    max_throughput = 250
   }
 
   networks = {
@@ -38,4 +40,7 @@ resource "samsungcloudplatformv2_virtualserver_server" "bastion" {
       Purpose = "Secure Gateway"
     }
   )
+
+  # 5.0.0 대응
+  zone = "kr-west1-b"
 }

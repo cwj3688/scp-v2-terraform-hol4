@@ -12,7 +12,7 @@ resource "samsungcloudplatformv2_mariadb_cluster" "my_mariadb" {
 
   
   # 접근 제어 (허용할 IP 주소)
-  allowable_ip_addresses  = ["192.168.0.0/24", "192.168.50.0/24"]
+  allowable_ip_addresses  = ["192.168.0.0/24", "192.168.50.0/24"] # VPC CIDR 전체 허용 예시
   
   # 초기 설정
   init_config_option = {
@@ -40,7 +40,7 @@ resource "samsungcloudplatformv2_mariadb_cluster" "my_mariadb" {
     
     block_storage_groups = [{
       role_type   = "OS"
-      size_gb     = 104
+      size_gb     = var.mariadb_storage_size
       volume_type = "SSD"
     }]
   }]

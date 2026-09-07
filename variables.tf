@@ -42,24 +42,10 @@ variable "vpc_wait_time" {
 
 # 쿠버네티스 설정
 variable "kubernetes_version" {
-  description = "쿠버네티스 엔진 버전"
+  description = "SKE 클러스터 버전"
   type        = string
   default     = "v1.31.8"
 }
-
-# Bastion Host (Virtual Server) 설정
-variable "bastion_server_type" {
-  description = "Bastion Host 인스턴스 타입"
-  type        = string
-  default     = "s1v1m2"
-}
-
-variable "bastion_disk_size" {
-  description = "Bastion Host 디스크 크기 (GB)"
-  type        = number
-  default     = 48
-}
-
 # MariaDB 설정
 variable "mariadb_engine_version_id" {
   description = "MariaDB Engine Version ID"
@@ -70,13 +56,13 @@ variable "mariadb_engine_version_id" {
 variable "server_type_name" {
   description = "MariaDB 인스턴스 타입 ID"
   type        = string
-  default     = "db1v1m2"
+  default     = "db2v1m2"
 }
 
 variable "mariadb_storage_size" {
   description = "MariaDB 스토리지 크기 (GB)"
   type        = number
-  default     = 16
+  default     = 104
 }
 
 variable "mariadb_database_name" {
@@ -102,4 +88,16 @@ variable "mariadb_timezone" {
   description = "MariaDB Timezone"
   type        = string
   default     = "Asia/Seoul"
+}
+# Bastion Host (Virtual Server) 설정
+variable "bastion_server_type" {
+  description = "Bastion Host 인스턴스 타입"
+  type        = string
+  default     = "s1v1m2"
+}
+
+variable "bastion_disk_size" {
+  description = "Bastion Host 디스크 크기 (GB)"
+  type        = number
+  default     = 48
 }
